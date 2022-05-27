@@ -1,0 +1,56 @@
+/* ESTILOS PARA EL TÍTULO */
+h3{
+    color: #DBD5B5;
+    font-weight: bold;
+    font-size: 1.5rem;
+    transition: .5s;
+}
+
+h4{
+    color: #ffd60a;
+}
+
+.dropdown{
+    background: #9a031e;
+    color: #fff !important;
+    transition: .2s ease;
+    border-radius: 5px;
+
+}
+
+.dropdown:hover{
+    background-color: #D62D2D;
+    box-shadow: -0px -0px 30px #D62D2D;
+}
+
+.btn{
+    color: #fff !important;
+    border: none;
+    background-color: #9a031e;
+    padding: 10px;
+}
+
+.btn:hover{
+    color: #fff !important;
+    border: none;
+    background-color: #9a031e !important;
+    padding: 10px;
+}
+
+.dropdown-menu{
+    background-color: #9a031e;
+    width: 10px;
+    box-shadow: -0px -0px 30px #9a031e;
+}
+
+.dropdown-item{
+    color: #fff;
+    transition: .2s linear;
+}
+
+.dropdown-item:hover{
+    color: #000 !important;
+    background-color: #DBD5B5 !important;
+    opacity: 50%;
+    border-radius: 5px;
+}

@@ -1,0 +1,80 @@
+<!-- NAVBAR -->
+<div class="navbar sticky-top container-fluid py-3" style="background-color: #001d3d;">
+    <a class="tituloHome navbar-brand ms-4">CONTROL EMPRESAS</a>
+    <form class="d-flex">
+        <button  class="buttonHome" data-bs-toggle="modal" data-bs-target="#exampleModalLogin" type="button">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            Login
+        </button>
+        <button class="buttonHome ms-3" data-bs-toggle="modal" data-bs-target="#exampleModalregister" type="button">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            Register
+        </button>
+    </form>
+</div>
+
+<!-- Modal Login-->
+<div class="modal fade" id="exampleModalLogin" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="container">
+            <div class="modal-content">
+                <div class="contact-box">
+                    <div class="left"></div>
+                    <div class="right">
+                        <div class="position-relative">
+                            <button type="button" class="btn-close position-absolute top-0 start-100 translate-middle" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <h2>Login</h2>
+                        <input [(ngModel)]="dataLogin.user" type="text" class="field" placeholder="User">
+                        <input [(ngModel)]="dataLogin.password" type="password" class="field" placeholder="Password">
+                        <div class="modal-footer">
+                            <button (click)="login()" class="btn" data-bs-dismiss="modal">Login</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal register-->
+<div class="modal fade" id="exampleModalregister" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="container">
+            <div class="modal-content">
+                <div class="contact-box">
+                    <div class="left"></div>
+                    <div class="right">
+                        <div class="position-relative">
+                            <button type="button" class="btn-close position-absolute top-0 start-100 translate-middle" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <h2>Register</h2>
+                        <form>
+                            <input [(ngModel)]="company.name" name="name" type="text" class="field" placeholder="Name">
+                            <select [(ngModel)]="company.typeCompany" name="type" class="form-select field" aria-label="Default select example" >
+                                <option value="Equipo Local" disabled selected>Tipo Empresa</option>
+                                <option value="Restaurante">Restaurante</option>
+                                <option value="Tecnológica">Tecnológica</option>
+                                <option value="Supermercado">Supermercado</option>
+                                <option value="Deportiva">Deportiva</option>
+                                <option value="Boutique">Boutique</option>
+                            </select>
+                            <input [(ngModel)]="company.location" name="location" type="text" class="field" placeholder="Municipio de Guatemala">
+                            <input [(ngModel)]="company.phone" name="telefono" type="text" class="field" placeholder="Teléfono">
+                            <input [(ngModel)]="company.email" name="email" type="text" class="field" placeholder="Correo Electrónico">
+                            <input [(ngModel)]="company.userCompany" name="user" type="text" class="field" placeholder="User">
+                            <input [(ngModel)]="company.passwordCompany" name="password" type="password" class="field" placeholder="Password">
+                            <button (click)="register()" class="btn" data-bs-dismiss="modal">Save</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

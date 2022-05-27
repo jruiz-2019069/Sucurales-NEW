@@ -1,0 +1,116 @@
+
+<app-nav-bar></app-nav-bar>
+  <div class="d-flex justify-content-between mt-3">
+    <div><button routerLink="/companyProducts" class="buttonHome ms-4 me-3 mt-3 mb-3" type="button">
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      PRODUCTOS
+  </button></div>
+    <div></div>
+    <div>
+        <button class="buttonHome me-4 mt-3 mb-3" data-bs-toggle="modal" data-bs-target="#exampleModalAddSucursal" type="button">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            AGREGAR
+        </button>
+    </div>
+</div>
+  <div class="table" >
+    <h1>SUCURSALES {{nameCompany}} </h1>
+    <table class="table">
+      <thead style="background-color: #FFD60A;">
+        <tr>
+          <th scope="col">NOMBRE</th>
+          <th scope="col">DIRECCIÓN</th>
+          <th scope="col">CORREO ELECTRÓNICO</th>
+          <th scope="col">TELÉFONO</th>
+          <th scope="col">ACCIONES</th>
+        </tr>
+      </thead>
+      <tbody *ngFor="let office of arrayOffices" class="table-group-divider"> 
+        <tr class="texto">
+          <td>{{office.name}}</td>
+          <td>{{office.direction}}</td>
+          <td>{{office.email}}</td>
+          <td>{{office.phone}}</td>
+          <td>
+            <button routerLink="/officeProducts" type="button" class="btn btn-primary me-1"><img src="../../../assets/images/eye.png" alt="" class="img-icons"></button>
+            <button (click)="getOffice(office._id)" type="button" class="btn btn-dark " data-bs-toggle="modal" data-bs-target="#exampleModalUpdateSucursal"><img src="../../../assets/images/lapiz.png" alt="" class="img-icons"></button>
+            <button (click)="getOffice(office._id)" type="button" class="btn btn-danger ms-1" data-bs-toggle="modal" data-bs-target="#exampleModalDeleteSucursal"><img src="../../../assets/images/basura.png" alt="" class="img-icons"></button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- MODAL PARA AGREGAR UNA SUCURSAL -->
+  <div class="modal fade" id="exampleModalAddSucursal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="container">
+            <div class="modal-content">
+                <div class="contact-box">
+                    <div class="left"></div>
+                    <div class="right">
+                        <div class="position-relative">
+                            <button type="button" class="btn-close position-absolute top-0 start-100 translate-middle" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <h2>Datos sucursal</h2>
+                        <input [(ngModel)]="office.name" name="name" type="text" class="field" placeholder="Nombre">
+                        <input [(ngModel)]="office.direction" name="direccion" type="text" class="field" placeholder="Dirección">
+                        <input [(ngModel)]="office.phone" name="phone" type="text" class="field" placeholder="Teléfono">
+                        <input [(ngModel)]="office.email" name="email" type="text" class="field" placeholder="Correo electrónico">
+                        <button (click)="addOffice()" class="buttonModalNewUser" data-bs-dismiss="modal">Guardar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+  </div>
+
+  <!-- MODAL UPDATE SUCURSAL -->
+  <div class="modal fade" id="exampleModalUpdateSucursal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="container">
+            <div class="modal-content">
+                <div class="contact-box">
+                    <div class="left"></div>
+                    <div class="right">
+                        <div class="position-relative">
+                            <button type="button" class="btn-close position-absolute top-0 start-100 translate-middle" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <h2>Actualizar</h2>
+                        <input [(ngModel)]="officeUpdate.name" name="name" type="text" class="field" placeholder="Nombre">
+                        <input [(ngModel)]="officeUpdate.direction" name="direccion" type="text" class="field" placeholder="Dirección">
+                        <input [(ngModel)]="officeUpdate.phone" name="phone" type="text" class="field" placeholder="Teléfono">
+                        <input [(ngModel)]="officeUpdate.email" name="email" type="text" class="field" placeholder="Correo electrónico">
+                        <button (click)="updateOffice()" class="buttonModalNewUser" data-bs-dismiss="modal">Guardar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+  </div>
+  <!-- MODAL PARA ELIMINAR UNA SUCURSAL -->
+  <div class="modal fade" id="exampleModalDeleteSucursal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="container">
+            <div class="modal-content">
+                <div class="contact-box">
+                    <div class="left"></div>
+                    <div class="right">
+                        <div class="position-relative">
+                            <button type="button" class="btn-close position-absolute top-0 start-100 translate-middle" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <h4>¿Esta seguro de eliminar esta sucursal?</h4>
+                        <button (click)="deleteOffice()" class="buttonModalNewUser mb-3" data-bs-dismiss="modal">Si</button>
+                        <button style="background: #F8333C;" class="buttonModalNewUser" data-bs-dismiss="modal">No</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+  </div>

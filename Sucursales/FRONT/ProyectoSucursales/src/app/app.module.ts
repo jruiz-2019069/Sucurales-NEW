@@ -1,0 +1,45 @@
+import { NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
+
+import { AppRoutingModule } from './app-routing.module';
+import { AppComponent } from './app.component';
+import { NavBarComponent } from './components/nav-bar/nav-bar.component';
+import { NavBarLoginComponent } from './components/nav-bar-login/nav-bar-login.component';
+import { HomeComponent } from './components/home/home.component';
+import { CompaniesComponent } from './components/companies/companies.component';
+import { OfficeComponent } from './components/office/office.component';
+import { CompanyProductsComponent } from './components/company-products/company-products.component';
+import { OfficeProductsComponent } from './components/office-products/office-products.component';
+
+import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+import { NavBarLoginRestService } from './services/nav-bar-login-rest.service';
+import { OfficeRestService } from './services/office-rest.service';
+import { ProductsCompanyRestService } from './services/products-company-rest.service';
+
+@NgModule({
+  declarations: [
+    AppComponent,
+    NavBarComponent,
+    NavBarLoginComponent,
+    HomeComponent,
+    CompaniesComponent,
+    OfficeComponent,
+    CompanyProductsComponent,
+    OfficeProductsComponent,
+  ],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    FormsModule,
+    HttpClientModule
+    
+  ],
+  providers: [
+    NavBarLoginRestService,
+    OfficeRestService,
+    ProductsCompanyRestService
+  ],
+  bootstrap: [AppComponent]
+})
+export class AppModule { }

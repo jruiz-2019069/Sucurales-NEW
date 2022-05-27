@@ -1,0 +1,109 @@
+<app-nav-bar></app-nav-bar>
+
+  <div class="d-flex justify-content-between mt-3">
+    <div></div>
+    <div></div>
+    <div>
+        <button class="buttonHome me-3 mt-3 mb-3" data-bs-toggle="modal" data-bs-target="#exampleModalAddProduct" type="button">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            AGREGAR
+        </button>
+    </div>
+</div>
+  <div class="table">
+    <h1>PRODUCTOS</h1>
+    <table class="table table">
+      <thead style="background-color: #FFD60A;">
+        <tr>
+          <th scope="col">NOMBRE PRODUCTO</th>
+          <th scope="col">PROVEEDOR</th>
+          <th scope="col">STOCK</th>
+          <th scope="col">PRECIO</th>
+          <th scope="col">ACCIONES</th>
+        </tr>
+      </thead>
+      <tbody *ngFor="let product of arrayProducts" class="table-group-divider">
+        <tr class="texto">
+          <td>{{product.name}}</td>
+          <td>{{product.supplier}}</td>
+          <td>{{product.stock}}</td>
+          <td>Q. {{product.price}}</td>
+          <td>
+            <button type="button" class="btn btn-primary me-1"><img src="../../../assets/images/send.png" alt="" class="img-icons"></button>
+            <button (click)="this.getProductCompany(product._id)" type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#exampleModalUpdateProduct"><img src="../../../assets/images/lapiz.png" alt="" class="img-icons"></button>
+            <button (click)="this.getProductCompany(product._id)" type="button" class="btn btn-danger ms-1" data-bs-toggle="modal" data-bs-target="#exampleModalDeleteProduct"><img src="../../../assets/images/basura.png" alt="" class="img-icons"></button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+   <!-- MODAL PARA AGREGAR UN PRODUCTO -->
+   <div class="modal fade" id="exampleModalAddProduct" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="container">
+            <div class="modal-content">
+                <div class="contact-box">
+                    <div class="left"></div>
+                    <div class="right">
+                        <div class="position-relative">
+                            <button type="button" class="btn-close position-absolute top-0 start-100 translate-middle" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <h2>Datos producto</h2>
+                        <input [(ngModel)]="productCompany.name" name="name" type="text" class="field" placeholder="Nombre producto">
+                        <input [(ngModel)]="productCompany.supplier" name="supplier" type="text" class="field" placeholder="Proveedor">
+                        <input [(ngModel)]="productCompany.stock" name="stock" type="text" class="field" placeholder="Stock">
+                        <input [(ngModel)]="productCompany.price" name="price" type="text" class="field" placeholder="Precio">
+                        <button (click)="addProductCompany()"class="buttonModalNewUser" data-bs-dismiss="modal">Guardar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+  </div>
+  <!-- MODAL PARA EDITAR UN PRODUCTO -->
+  <div class="modal fade" id="exampleModalUpdateProduct" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="container">
+            <div class="modal-content">
+                <div class="contact-box">
+                    <div class="left"></div>
+                    <div class="right">
+                        <div class="position-relative">
+                            <button type="button" class="btn-close position-absolute top-0 start-100 translate-middle" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <h2>Actualizar</h2>
+                        <input [(ngModel)]="productUpdate.name" name="name" type="text" class="field" placeholder="Nombre producto">
+                        <input [(ngModel)]="productUpdate.supplier" name="supplier" type="text" class="field" placeholder="Proveedor">
+                        <input [(ngModel)]="productUpdate.stock" name="stock" type="text" class="field" placeholder="Stock">
+                        <input [(ngModel)]="productUpdate.price" name="price" type="text" class="field" placeholder="Precio">
+                        <button (click)="updateProductCompany()" class="buttonModalNewUser" data-bs-dismiss="modal">Guardar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+  </div>
+  <!-- MODAL PARA ELIMINAR UN PRODUCTO -->
+  <div class="modal fade" id="exampleModalDeleteProduct" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="container">
+            <div class="modal-content">
+                <div class="contact-box">
+                    <div class="left"></div>
+                    <div class="right">
+                        <div class="position-relative">
+                            <button type="button" class="btn-close position-absolute top-0 start-100 translate-middle" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <h4>¿Esta seguro de eliminar este producto?</h4>
+                        <button (click)="deleteProductCompany()" class="buttonModalNewUser mb-3" data-bs-dismiss="modal">Si</button>
+                        <button style="background: #F8333C;" class="buttonModalNewUser" data-bs-dismiss="modal">No</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+  </div>

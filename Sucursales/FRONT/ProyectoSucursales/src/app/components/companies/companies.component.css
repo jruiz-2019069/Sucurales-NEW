@@ -1,0 +1,245 @@
+@import url('https://fonts.googleapis.com/css2?family=Asap+Condensed:wght@500&display=swap');
+
+.body {
+    margin: 0;
+    padding: 2%; 
+    background-color: #ffffff;
+    background-size: cover;
+    background-attachment: fixed;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.empresas{
+    display: flex;
+    justify-content: center;
+
+}
+
+div img{
+    width:100%
+}
+
+.functions{
+    position: relative;
+    max-width:5%;
+    justify-content: center;
+    text-align: center;
+}
+
+.btn>.img-icon{
+    height: 40px;
+    width: 40px;
+}
+
+.img-icon{
+    height: 30px;
+    width: 20px;
+}
+
+
+.card {
+    background-color: rgb(200, 200, 200);
+    border-radius: 15px;
+    padding: 35px;
+    width: 95px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.card-img-top{
+    max-width: 75%;
+}
+
+.card-title{
+    font-family: 'Asap Condensed', sans-serif;
+    font-size: 30px;
+}
+
+
+
+section {
+    display: flex;
+    justify-content: space-around;
+}
+
+
+.btn-see{
+    color: #313758;
+    font-size: 20px;
+    background-color: rgba(0, 0, 0, 0);
+    border-color: #313758;
+    border-style: solid;
+    border-width: 3px;
+    padding: 0.5rem;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+    border-radius: 10px;
+    width: 14rem;
+}
+
+.btn-see:hover{
+    color: #ffffff;
+    background-color: #313758;
+    padding: 0.5rem;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+    border-radius: 10px;
+    width: 14rem;
+
+}
+
+
+/*Modal*/
+
+/* ESTILOS PARA EL MODAL DE NUEVO USUARIO*/
+.container{
+	position: relative;
+	width: 100%;
+	height: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+}
+
+.container:after{
+	content: '';
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	left: 0;
+	top: 0;
+	background-size: cover;
+	filter: blur(50px);
+	z-index: -1;
+}
+.contact-box{
+	max-width: 850px;
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+	background-color: #fff;
+	box-shadow: 0px 0px 19px 5px rgba(0,0,0,0.19);
+}
+
+.left{
+	background: url("../../../assets/images/empresa.jpg") no-repeat center;
+	background-size: cover;
+	height: 100%;
+}
+
+.right{
+	padding: 25px 40px;
+}
+
+h2{
+	position: relative;
+	padding: 0 0 10px;
+	margin-bottom: 10px;
+}
+
+h2:after{
+	content: '';
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    transform: translateX(-50%);
+    height: 4px;
+    width: 50px;
+    border-radius: 2px;
+    background-color: #001d3d;
+}
+
+.field{
+	width: 100%;
+	border: 2px solid rgba(0, 0, 0, 0);
+	outline: none;
+	background-color: rgba(230, 230, 230, 0.6);
+	padding: 0.5rem 1rem;
+	font-size: 1.1rem;
+	margin-bottom: 22px;
+	transition: .3s;
+}
+
+.field:hover{
+	background-color: rgba(0, 0, 0, 0.1);
+}
+
+textarea{
+	min-height: 150px;
+}
+
+.buttonModalNewUser{
+	width: 100%;
+	padding: 0.5rem 1rem;
+	background-color: #001d3d;
+	color: #fff;
+	font-size: 1.1rem;
+	border: none;
+	outline: none;
+	cursor: pointer;
+	transition: .3s;
+}
+
+.buttonModalNewUser:hover{
+    background-color: #343a59;
+}
+
+.field:focus{
+    border: 2px solid #343a59;
+    background-color: #fff;
+}
+
+@media screen and (max-width: 880px){
+	.contact-box{
+		grid-template-columns: 1fr;
+	}
+	.left{
+		height: 200px;
+	}
+}
+
+h4{
+	position: relative;
+	padding: 0 0 10px;
+	margin-bottom: 10px;
+}
+
+h4:after{
+	content: '';
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    transform: translateX(-50%);
+    height: 4px;
+    width: 100px;
+    border-radius: 2px;
+    background-color: #001d3d;
+}
+/* ------------------------------------------------ */
+
+/*ESTILOS PARA EL BOTÓN AGREGAR USUARIO */
+.buttonHome{
+    position: relative;
+    padding: 10px 15px;
+    border: none;
+    outline: none;
+    background: #457B9D;
+    color: white;
+    cursor: pointer;
+    transition: .5s;
+    overflow: hidden;
+    font-size: 1rem;
+    border-radius: 5px;
+    width: 9rem;
+}
+
+/* ESTILOS PARA EL BOTÓN DE NUEVO USUARIO*/
+.buttonHome:hover{
+    color: #fff(14, 14, 14);
+    background-color: #366785;
+}

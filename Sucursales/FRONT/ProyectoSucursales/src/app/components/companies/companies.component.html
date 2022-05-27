@@ -1,0 +1,156 @@
+<app-nav-bar></app-nav-bar>
+<div class="body">
+
+    <div class="d-flex justify-content-between mt-3">
+        <div></div>
+        <div></div>
+        <div>
+            <button class="buttonHome me-3 mt-1 mb-3" data-bs-toggle="modal" data-bs-target="#exampleModalAddCompany" 
+                type="button">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                Agregar 
+                </button>
+        </div>
+    </div>
+
+    <div class="empresas">
+        <div class="card" style="width: 18rem;">
+            <img class="card-img-top" src="../../../assets/images/edificio.png" alt="Imagen Empresa">
+            <div class="card-body">
+                <h5 class="card-title"><strong>Meat Pack</strong></h5>
+                <!-- Modal 1 -->
+                <button type="button" class="btn btn-link" data-bs-toggle="modal"
+                    data-bs-target="#exampleModalDeleteCompany"><img src="../../../assets/images/eliminar.png" alt="#"
+                        class="img-icon"></button>
+
+                <!-- Modal 2 -->
+                <button type="button" class="btn btn-link" data-bs-toggle="modal"
+                    data-bs-target="#exampleModalUpdateCompany"><img src="../../../assets/images/editar.png" alt="#"
+                        class="img-icon"></button>
+
+                <section class="section mt-2">
+                    <button routerLink="/office" type="button" class="btn btn-see" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                        Sucursales
+                    </button>
+                </section>
+
+                <section class="section mt-2">
+                    <button routerLink="/companyProducts" type="button" class="btn btn-see" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                        Productos
+                    </button> 
+                </section>
+
+            </div>
+        </div>
+
+
+    </div>
+
+    <section class="functions">
+
+
+        <!-- Modal eliminar -->
+        <div class="modal fade" id="exampleModalDeleteCompany" tabindex="-1" aria-labelledby="exampleModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-lg">
+                <div class="container">
+                    <div class="modal-content">
+                        <div class="contact-box">
+                            <div class="left"></div>
+                            <div class="right">
+                                <div class="position-relative">
+                                    <button type="button"
+                                        class="btn-close position-absolute top-0 start-100 translate-middle"
+                                        data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <h4>¿Está seguro de eliminar esta empresa?</h4>
+                                <button class="buttonModalNewUser mb-3" data-bs-dismiss="modal">Si</button>
+                                <button style="background: #F8333C;" class="buttonModalNewUser"
+                                    data-bs-dismiss="modal">No</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Modal editar -->
+
+        <!-- MODAL PARA EDITAR UNA EMPRESA -->
+        <div class="modal fade" id="exampleModalUpdateCompany" tabindex="-1" aria-labelledby="exampleModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-lg">
+                <div class="container">
+                    <div class="modal-content">
+                        <div class="contact-box">
+                            <div class="left"></div>
+                            <div class="right">
+                                <div class="position-relative">
+                                    <button type="button"
+                                        class="btn-close position-absolute top-0 start-100 translate-middle"
+                                        data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <h2>Editar</h2>
+                                <input type="text" class="field" placeholder="Name">
+                                <select class="form-select field" aria-label="Default select example" >
+                                    <option value="Equipo Local" disabled selected>Tipo Empresa</option>
+                                    <option>Tipo 1</option>
+                                </select>
+                                <input type="text" class="field" placeholder="Municipio de Guatemala">
+                                <input type="text" class="field" placeholder="Teléfono">
+                                <input type="text" class="field" placeholder="Correo Electrónico">
+                                <input type="text" class="field" placeholder="User">
+                                <input type="password" class="field" placeholder="Password">
+                                <button class="buttonModalNewUser" data-bs-dismiss="modal">Actualizar</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Modal para agregar una empresa -->
+
+        <div class="modal fade" id="exampleModalAddCompany" tabindex="-1" aria-labelledby="exampleModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-lg">
+                <div class="container">
+                    <div class="modal-content">
+                        <div class="contact-box">
+                            <div class="left"></div>
+                            <div class="right">
+                                <div class="position-relative">
+                                    <button type="button"
+                                        class="btn-close position-absolute top-0 start-100 translate-middle"
+                                        data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <h2>Datos Empresa</h2>
+                                <input type="text" class="field" placeholder="Name">
+                                <select class="form-select field" aria-label="Default select example" >
+                                    <option value="Equipo Local" disabled selected>Tipo Empresa</option>
+                                    <option>Tipo 1</option>
+                                </select>
+                                <input type="text" class="field" placeholder="Municipio de Guatemala">
+                                <input type="text" class="field" placeholder="Teléfono">
+                                <input type="text" class="field" placeholder="Correo Electrónico">
+                                <input type="text" class="field" placeholder="User">
+                                <input type="password" class="field" placeholder="Password">
+                                <button name="guardar" class="buttonModalNewUser"
+                                    data-bs-dismiss="modal">Guardar</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+    <br>
+
+
+
+</div>
