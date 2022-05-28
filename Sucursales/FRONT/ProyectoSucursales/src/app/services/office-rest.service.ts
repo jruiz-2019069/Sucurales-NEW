@@ -38,6 +38,10 @@ export class OfficeRestService {
     return this.http.delete(environment.baseUrl + "office/deleteOffice/" + idOffice, {headers: this.httpOptions});
   }
 
+  sellProduct(idProduct: any, params: {}){
+    return this.http.put(environment.baseUrl + "office/sellProduct/" + idProduct, params, {headers: this.httpOptions});
+  }
+
   
 
 }

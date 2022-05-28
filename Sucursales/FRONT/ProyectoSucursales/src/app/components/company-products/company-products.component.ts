@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { productCompanyModel } from 'src/app/Models/productCompany';
 import { NavBarLoginRestService } from 'src/app/services/nav-bar-login-rest.service';
+import { OfficeRestService } from 'src/app/services/office-rest.service';
 import { ProductsCompanyRestService } from 'src/app/services/products-company-rest.service';
 import Swal from 'sweetalert2';
 
@@ -26,16 +27,36 @@ export class CompanyProductsComponent implements OnInit {
     stock: 0,
     idCompany: ""
   }
+  
+  //Arreglo de sucursales de la empresa que esta logeada
+  arrayOffices: any = [];
+
+  //Variable para almacenación del nombre del producto
+  nameProduct = "";
+
+  //Variable para almacenación del id del producto
+  idProduct: any;
+
+  //Variable que almacenará el id de la sucursal
+  idOffice: any;
+
+  //Objeto que almacenará la cantidad
+  quantity = 0;
+
+  idCompany: any;
 
   constructor(
     public navBarRest: NavBarLoginRestService,
-    public companyProductRest: ProductsCompanyRestService
+    public companyProductRest: ProductsCompanyRestService,
+    public officeRest: OfficeRestService
   ) { 
     this.productCompany = new productCompanyModel("", "", "", 0, 0, "");
   }
 
   ngOnInit(): void {
     this.getProductsCompany();
+    this.getOffices();
+    this.idCompany = this.navBarRest.getUser()._id;
   }
 
   getProductsCompany(){
@@ -131,5 +152,23 @@ export class CompanyProductsComponent implements OnInit {
       }
     });
   }
+
+  getOffices(){
+    this.officeRest.getOffices(this.navBarRest.getUser()._id).subscribe({
+      next: (res: any) => {
+        this.arrayOffices = res.offices;
+      },
+      error: (err) => {
+        console.log(err);
+      }
+    });
+  }
+
+  getNameProduct(name: string, idProduct: string){
+    this.nameProduct = name;
+    this.idProduct = idProduct;     
+  }
+
+
 
 }

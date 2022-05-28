@@ -32,7 +32,7 @@
           <td>{{product.stock}}</td>
           <td>Q. {{product.price}}</td>
           <td>
-            <button type="button" class="btn btn-primary me-1"><img src="../../../assets/images/send.png" alt="" class="img-icons"></button>
+            <button (click)="getNameProduct(product.name, product._id)" type="button" class="btn btn-primary me-1"><img src="../../../assets/images/send.png" alt="" class="img-icons" data-bs-toggle="modal" data-bs-target="#exampleModalSendProduct"></button>
             <button (click)="this.getProductCompany(product._id)" type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#exampleModalUpdateProduct"><img src="../../../assets/images/lapiz.png" alt="" class="img-icons"></button>
             <button (click)="this.getProductCompany(product._id)" type="button" class="btn btn-danger ms-1" data-bs-toggle="modal" data-bs-target="#exampleModalDeleteProduct"><img src="../../../assets/images/basura.png" alt="" class="img-icons"></button>
           </td>
@@ -107,3 +107,30 @@
         </div>
     </div>
   </div>
+
+  <!-- Modal para enviar un producto-->
+<div class="modal fade" id="exampleModalSendProduct" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-lg">
+      <div class="container">
+          <div class="modal-content">
+              <div class="contact-box">
+                  <div class="left"></div>
+                  <div class="right">
+                      <div class="position-relative">
+                          <button type="button" class="btn-close position-absolute top-0 start-100 translate-middle" data-bs-dismiss="modal" aria-label="Close"></button>
+                      </div>
+                      <h2>{{nameProduct}}</h2>
+                      <form>
+                          <select [(ngModel)]="idOffice" name="office" class="form-select field" aria-label="Default select example" >
+                            <option value="Sucursal" disabled selected>Sucursal</option>
+                            <option *ngFor="let office of arrayOffices" value="{{office._id}}">{{office.name}}</option>
+                          </select>
+                          <input [(ngModel)]="this.quantity" name="quantity" type="number" class="field" placeholder="Cantidad a enviar">
+                          <button class="btnModalSend" data-bs-dismiss="modal">Enviar</button>
+                      </form>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>

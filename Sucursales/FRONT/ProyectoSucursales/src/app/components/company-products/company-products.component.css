@@ -21,6 +21,19 @@
     padding: 10px;
 }
 
+.btnModalSend{
+	width: 100%;
+	padding: 0.5rem 1rem;
+	background-color: #001d3d;
+	color: #fff;
+	font-size: 1.1rem;
+	border: none;
+	outline: none;
+	cursor: pointer;
+	transition: .3s;
+}
+
+
 .img-icons{
     height: 2rem;
 }
@@ -173,3 +186,4 @@ h4:after{
 .buttonHome:hover{
     color: rgb(14, 14, 14);
 }
+

@@ -1,7 +1,7 @@
 <app-nav-bar></app-nav-bar>
 
 <div class="table">
-    <h1>NOMBRE SUCURSAL</h1>
+    <h1>{{this.office.name}}</h1>
     <table class="table table">
       <thead style="background-color: #FFD60A;">
         <tr>
@@ -13,13 +13,13 @@
           <th scope="col">VENDER</th>
         </tr>
       </thead>
-      <tbody class="table-group-divider">
+      <tbody *ngFor="let product of arrayProducts" class="table-group-divider">
         <tr class="texto">
-          <td>Chuck Tylor</td>
-          <td>Converse</td>
-          <td>Q. 749.00</td>
-          <td>31</td>
-          <td>19</td>
+          <td>{{product.name}}</td>
+          <td>{{product.supplier}}</td>
+          <td>Q. {{product.price}}</td>
+          <td>{{product.stock}}</td>
+          <td>{{product.totalSales}}</td>
           <td>
             <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModalSellProduct"><img src="../../../assets/images/cart.png" alt="" class="img-icons"></button>
           </td>

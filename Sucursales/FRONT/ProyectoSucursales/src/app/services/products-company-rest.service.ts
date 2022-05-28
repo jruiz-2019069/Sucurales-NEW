@@ -3,6 +3,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 import { NavBarLoginRestService } from './nav-bar-login-rest.service';
 
+
 @Injectable({
   providedIn: 'root'
 })
@@ -37,5 +38,6 @@ export class ProductsCompanyRestService {
   deleteProductCompany(idProduct: any){
     return this.http.delete(environment.baseUrl + "productCompany/deleteProductCompany/" + idProduct, {headers: this.httpOptions});
   }
+
 
 }

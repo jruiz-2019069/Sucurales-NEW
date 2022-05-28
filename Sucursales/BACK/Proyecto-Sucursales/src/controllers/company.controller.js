@@ -109,11 +109,12 @@ exports.deleteCompany = async(req, res)=>{
 //Función para enviarle un producto a una surcursal
 exports.addProductOffice = async(req, res)=>{
     try{
-        const idCompany = req.user.sub;
+        const idCompany = req.params.idCompany;
         const idProductCompany = req.params.idProduct; //Capturamos el id del producto que queremos enviar a la sucursal.
         const idOffice = req.params.idOffice; //Capturamos el id de la oficina al que se enviaran los productos.
         const productCompany = await ProductCompany.findOne({_id: idProductCompany}); //Buscamos el producto que enviaremos.
-        const params = req.body;
+        const params = {stock: 2};
+        console.log("los parametros son: " + params);
         const data = {
             name: productCompany.name,
             supplier: productCompany.supplier,
@@ -153,6 +154,7 @@ exports.addProductOffice = async(req, res)=>{
             }
         }
     }catch(err){
+        console.log("LLEGO AL ERROR");
         console.log(err);
         return err;
     }
@@ -168,6 +170,16 @@ exports.getCompany = async(req, res)=>{
         }else{
             return res.status(404).send({message: "Company not found."});
         }
+    }catch(err){
+        console.log(err);
+        return err;
+    }
+}
+
+
+exports.addTestProductOffice = async(req, res)=>{
+    try{
+        return res.status(200).send({message: "si llego"});
     }catch(err){
         console.log(err);
         return err;

@@ -16,11 +16,7 @@ exports.getProductsOffice = async(req, res)=>{
     try{
         const idOffice = req.params.id;
         const productsOffice = await ProductOffice.find({idOffice: idOffice});
-        if(Object.entries(productsOffice).length >= 1){
-            return res.status(200).send({productsOffice});
-        }else{
-            return res.status(404).send({message: "There are no products to show."});
-        }
+        return res.status(200).send({productsOffice});
     }catch(err){
         console.log(err);
         return err;

@@ -9,7 +9,8 @@ api.get('/testCompanyController', companyController.testCompanyController);
 api.post('/login', companyController.login);
 api.put('/updateCompanyLoged', [middleware.isLoged, middleware.isCompany], companyController.updateCompanyLoged);
 api.delete('/deleteCompany', [middleware.isLoged, middleware.isCompany], companyController.deleteCompany);
-api.post('/addProductOffice/:idProduct/:idOffice', [middleware.isLoged, middleware.isCompany], companyController.addProductOffice);
+api.post('/addProductOffice/:idCompany/:idProduct/:idOffice', [middleware.isLoged, middleware.isCompany], companyController.addProductOffice);
 api.get('/getCompany', [middleware.isLoged, middleware.isCompany], companyController.getCompany);
+api.post('/addTestProductOffice', [middleware.isLoged, middleware.isCompany], companyController.addTestProductOffice);
 
 module.exports = api;

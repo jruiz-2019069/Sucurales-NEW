@@ -38,7 +38,7 @@
           <td>{{office.email}}</td>
           <td>{{office.phone}}</td>
           <td>
-            <button routerLink="/officeProducts" type="button" class="btn btn-primary me-1"><img src="../../../assets/images/eye.png" alt="" class="img-icons"></button>
+            <button [routerLink]="['/officeProducts/' + office._id]" type="button" class="btn btn-primary me-1"><img src="../../../assets/images/eye.png" alt="" class="img-icons"></button>
             <button (click)="getOffice(office._id)" type="button" class="btn btn-dark " data-bs-toggle="modal" data-bs-target="#exampleModalUpdateSucursal"><img src="../../../assets/images/lapiz.png" alt="" class="img-icons"></button>
             <button (click)="getOffice(office._id)" type="button" class="btn btn-danger ms-1" data-bs-toggle="modal" data-bs-target="#exampleModalDeleteSucursal"><img src="../../../assets/images/basura.png" alt="" class="img-icons"></button>
           </td>
