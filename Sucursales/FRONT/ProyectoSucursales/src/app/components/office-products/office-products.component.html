@@ -21,7 +21,7 @@
           <td>{{product.stock}}</td>
           <td>{{product.totalSales}}</td>
           <td>
-            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModalSellProduct"><img src="../../../assets/images/cart.png" alt="" class="img-icons"></button>
+            <button (click)="getProductOffice(product._id)" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModalSellProduct"><img src="../../../assets/images/cart.png" alt="" class="img-icons"></button>
           </td>
         </tr>
       </tbody>
@@ -38,9 +38,9 @@
                         <div class="position-relative">
                             <button type="button" class="btn-close position-absolute top-0 start-100 translate-middle" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
-                        <h4>Vender producto</h4>
-                        <input type="text" class="field" placeholder="Cantidad que desea vender">
-                        <button class="buttonModalNewUser mb-3" data-bs-dismiss="modal">Vender</button>
+                        <h4>{{this.nameProduct}}</h4>
+                        <input [(ngModel)]="this.quantity" name="cantidad" type="text" class="field" placeholder="Cantidad que desea vender">
+                        <button (click)="sellProduct()" class="buttonModalNewUser mb-3" data-bs-dismiss="modal">Vender</button>
                         <button style="background: #F8333C;" class="buttonModalNewUser" data-bs-dismiss="modal">Cancelar</button>
                     </div>
                 </div>

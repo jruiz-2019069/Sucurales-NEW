@@ -154,7 +154,7 @@ exports.sellProduct = async(req, res)=>{
                 const stockUpdated = product.stock - params.stock;
                 const totalSalesUpdated = parseInt(product.totalSales) + parseInt(params.stock);
                 const productUpdated = await ProductOffice.findOneAndUpdate({_id:idProduct}, {stock: stockUpdated, totalSales: totalSalesUpdated}, {new:true});
-                return res.status(200).send({productUpdated});
+                return res.status(200).send({message: "Successful sale", productUpdated});
             }
         }
     }catch(err){

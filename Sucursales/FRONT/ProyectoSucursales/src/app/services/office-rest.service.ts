@@ -19,6 +19,7 @@ export class OfficeRestService {
   ) { }
 
   addOffice(params: {}){
+    console.log("****************>>>>>>" + JSON.stringify(params));
     return this.http.post(environment.baseUrl + "office/addOffice", params, {headers: this.httpOptions});
   }
 

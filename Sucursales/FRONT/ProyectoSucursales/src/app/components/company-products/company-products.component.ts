@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { productCompanyModel } from 'src/app/Models/productCompany';
+import { CompanyRestService } from 'src/app/services/company-rest.service';
 import { NavBarLoginRestService } from 'src/app/services/nav-bar-login-rest.service';
 import { OfficeRestService } from 'src/app/services/office-rest.service';
 import { ProductsCompanyRestService } from 'src/app/services/products-company-rest.service';
@@ -48,7 +49,8 @@ export class CompanyProductsComponent implements OnInit {
   constructor(
     public navBarRest: NavBarLoginRestService,
     public companyProductRest: ProductsCompanyRestService,
-    public officeRest: OfficeRestService
+    public officeRest: OfficeRestService,
+    public companyRest: CompanyRestService
   ) { 
     this.productCompany = new productCompanyModel("", "", "", 0, 0, "");
   }
@@ -167,6 +169,38 @@ export class CompanyProductsComponent implements OnInit {
   getNameProduct(name: string, idProduct: string){
     this.nameProduct = name;
     this.idProduct = idProduct;     
+  }
+
+  addProductOffice(){
+    this.companyRest.addProductOffice(this.navBarRest.getUser()._id, this.idProduct, this.idOffice, this.quantity).subscribe({
+      next: (res: any) => {
+        this.getProductsCompany();
+        Swal.fire({
+          title: res.message,
+          icon: 'success',
+          timer: 2000
+        });
+      },
+      error: (err) => {
+        console.log(err);
+      }
+    });
+  }
+
+  //PRUEBA
+  testCompanyController(){
+    this.companyRest.testCompanyController("PRUEBA").subscribe({
+      next: (res: any) => {
+        Swal.fire({
+          title: res.message,
+          icon: 'success',
+          timer: 2000
+        });
+      },
+      error: (err) => {
+        console.log(err);
+      }
+    });
   }
 
 

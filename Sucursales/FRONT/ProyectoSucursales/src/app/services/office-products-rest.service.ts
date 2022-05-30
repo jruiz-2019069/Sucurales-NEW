@@ -21,4 +21,14 @@ export class OfficeProductsRestService {
   getProductsOffice(idOffice: any){
     return this.http.get(environment.baseUrl + "productOffice/getProductsOffice/" + idOffice, {headers: this.htppOptions});
   }
+
+  getProductOffice(idProduct: any){
+    return this.http.get(environment.baseUrl + "productOffice/getProductOffice/" + idProduct, {headers: this.htppOptions});
+  }
+
+  sellProduct(idProduct: any, params: any){
+    let body = JSON.stringify({"stock": params});
+    return this.http.put(environment.baseUrl + "office/sellProduct/" + idProduct, body, {headers: this.htppOptions});
+  }
+
 }

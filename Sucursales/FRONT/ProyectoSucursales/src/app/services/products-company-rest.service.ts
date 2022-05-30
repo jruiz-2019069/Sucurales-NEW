@@ -39,5 +39,7 @@ export class ProductsCompanyRestService {
     return this.http.delete(environment.baseUrl + "productCompany/deleteProductCompany/" + idProduct, {headers: this.httpOptions});
   }
 
+  
+
 
 }

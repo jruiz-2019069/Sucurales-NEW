@@ -18,5 +18,14 @@ export class CompanyRestService {
     public http: HttpClient
   ) { }
 
-  
+  addProductOffice(idCompany: any, idProduct: any, idOffice: any, params: any){
+    let body = JSON.stringify({"stock": params});
+    return this.http.post(environment.baseUrl + "company/addProductOffice/" + idCompany + "/" + idProduct + "/" + idOffice, body, {headers: this.htppOptions});
+  }
+
+  testCompanyController(params: any){
+    let body=JSON.stringify({params});
+    return this.http.post(environment.baseUrl + "company/testCompanyController", body,{headers: this.htppOptions});
+  }
+
 }

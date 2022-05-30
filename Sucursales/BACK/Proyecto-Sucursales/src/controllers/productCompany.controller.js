@@ -69,11 +69,11 @@ exports.updateProductCompany = async(req, res)=>{
                     return res.status(400).send({message: 'This product already exist.'});
                 }else{
                     const productCompanyUpdated = await ProductCompany.findOneAndUpdate({_id: idProductCompany}, data, {new:true});
-                    return res.status(200).send({productCompanyUpdated});
+                    return res.status(200).send({message: "Product updated", productCompanyUpdated});
                 }
             }else{
                 const productCompanyUpdated = await ProductCompany.findOneAndUpdate({_id: idProductCompany}, data, {new:true});
-                    return res.status(200).send({productCompanyUpdated});
+                    return res.status(200).send({message: "Product updated", productCompanyUpdated});
             }
         }
     }catch(err){

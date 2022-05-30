@@ -121,12 +121,12 @@
                       </div>
                       <h2>{{nameProduct}}</h2>
                       <form>
-                          <select [(ngModel)]="idOffice" name="office" class="form-select field" aria-label="Default select example" >
+                          <select [(ngModel)]="this.idOffice" name="office" class="form-select field" aria-label="Default select example" >
                             <option value="Sucursal" disabled selected>Sucursal</option>
                             <option *ngFor="let office of arrayOffices" value="{{office._id}}">{{office.name}}</option>
                           </select>
                           <input [(ngModel)]="this.quantity" name="quantity" type="number" class="field" placeholder="Cantidad a enviar">
-                          <button class="btnModalSend" data-bs-dismiss="modal">Enviar</button>
+                          <button (click)="addProductOffice()" class="btnModalSend" data-bs-dismiss="modal">Enviar</button>
                       </form>
                   </div>
               </div>

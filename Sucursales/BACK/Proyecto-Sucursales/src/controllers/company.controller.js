@@ -113,8 +113,7 @@ exports.addProductOffice = async(req, res)=>{
         const idProductCompany = req.params.idProduct; //Capturamos el id del producto que queremos enviar a la sucursal.
         const idOffice = req.params.idOffice; //Capturamos el id de la oficina al que se enviaran los productos.
         const productCompany = await ProductCompany.findOne({_id: idProductCompany}); //Buscamos el producto que enviaremos.
-        const params = {stock: 2};
-        console.log("los parametros son: " + params);
+        const params = req.body;
         const data = {
             name: productCompany.name,
             supplier: productCompany.supplier,
@@ -124,7 +123,7 @@ exports.addProductOffice = async(req, res)=>{
             idOffice: idOffice,
             idCompany: idCompany
         }
-
+        
         const msg = await dataObligatory(data);
 
         if(msg){
@@ -142,7 +141,7 @@ exports.addProductOffice = async(req, res)=>{
                         const productOfficeUpdated = await ProductOffice.findOneAndUpdate({_id: productOffice._id}, {stock: stockProductOffice}, {new:true});
                         const stockProductCompany = productCompany.stock - params.stock;
                         const productCompanyUpdated = await ProductCompany.findOneAndUpdate({_id: idProductCompany}, {stock: stockProductCompany}, {new:true});
-                        return res.status(200).send({productOfficeUpdated});
+                        return res.status(200).send({message: 'Product office created successfully.',productOfficeUpdated});
                     }else{
                         let productOffice = new ProductOffice(data);
                         await productOffice.save();
