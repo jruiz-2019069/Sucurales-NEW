@@ -1,12 +1,26 @@
 @import url('https://fonts.googleapis.com/css2?family=Asap+Condensed:wght@500&display=swap');
 
 .body {
-    margin: 0;
-    padding: 2%; 
+    
     background-color: #ffffff;
     background-size: cover;
     background-attachment: fixed;
     font-family: Arial, Helvetica, sans-serif;
+}
+
+.fondo{
+    position: absolute; 
+    left: 0px;
+    width: 100vw; 
+    height:100vh;
+    background-image: url('../../../assets/images/fondo.jpeg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    justify-content: center;
+    align-items: center;
+    overflow: auto;
+    overflow-x: hidden;
 }
 
 .empresas{
@@ -36,6 +50,17 @@ div img{
     width: 20px;
 }
 
+.btnAddCompany{
+    width: 100%;
+    padding: 0.5rem 1rem;
+    background-color: #001d3d;
+    color: #fff;
+    font-size: 1.1rem;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    transition: .3s;
+}
 
 .card {
     background-color: rgb(200, 200, 200);

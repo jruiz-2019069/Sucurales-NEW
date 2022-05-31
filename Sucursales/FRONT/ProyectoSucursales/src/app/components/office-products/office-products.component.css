@@ -154,3 +154,40 @@ h4:after{
     background-color: white;
     border-color: #fff;
 }
+
+.fondo{
+    position: absolute; 
+    left: 0px;
+    width: 100vw; 
+    height:100vh;
+    background-image: url('../../../assets/images/fondo.jpeg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    justify-content: center;
+    align-items: center;
+    overflow: auto;
+    overflow-x: hidden;
+}
+
+/*ESTILOS PARA EL BOTÓN AGREGAR USUARIO */
+.buttonHome{
+    position: relative;
+    padding: 10px 15px;
+    border: none;
+    outline: none;
+    background: #457B9D;
+    color: white;
+    cursor: pointer;
+    transition: .5s;
+    overflow: hidden;
+    font-size: 1rem;
+    border-radius: 5px;
+    width: 9rem;
+}
+
+/* ESTILOS PARA EL BOTÓN DE NUEVO USUARIO*/
+.buttonHome:hover{
+    color: #fff(14, 14, 14);
+    background-color: #366785;
+}

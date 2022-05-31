@@ -28,4 +28,30 @@ export class CompanyRestService {
     return this.http.post(environment.baseUrl + "company/testCompanyController", body,{headers: this.htppOptions});
   }
 
+  //Método para obtener las compañías 
+  getCompanies(){
+    return this.http.get(environment.baseUrl + "admin/getCompanies/", {headers: this.htppOptions});
+  }
+
+  //Método para agregar una compañía
+  addCompany(params: {}){
+    return this.http.post(environment.baseUrl + "admin/addCompany/", params, {headers: this.htppOptions});
+  }
+
+  //Método para obtener una empresa por medio de su ID.
+  getCompany(idCompany: any){
+    return this.http.get(environment.baseUrl + "admin/getCompany/" + idCompany, {headers: this.htppOptions});
+  }
+
+  //Método para actualicar una compañía siendo admin
+  updateCompany(idCompany: any, params: {}){
+    return this.http.put(environment.baseUrl + "admin/updateCompany/" + idCompany, params, {headers: this.htppOptions});
+  }
+
+  //Método para eliminar una empresa
+  deleteCompany(idCompany: any){
+    return this.http.delete(environment.baseUrl + "admin/deleteCompany/" + idCompany, {headers: this.htppOptions});
+  }
+  
+
 }

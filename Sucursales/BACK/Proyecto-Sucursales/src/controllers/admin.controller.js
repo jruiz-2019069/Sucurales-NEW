@@ -93,8 +93,8 @@ exports.updateCompany = async(req, res)=>{
             location: params.location,
             phone: params.phone,
             email: params.email,
-            userCompany: params.userCompany,
-            passwordCompany: params.passwordCompany,
+            userCompany: params.userCompany
+            
         }
         const msg = await dataObligatory(data); 
         if(msg){
@@ -137,7 +137,7 @@ exports.deleteCompany = async(req, res)=>{
         const officesCompanyDeleted = await Office.deleteMany({idCompany: idCompany});
         const productsCompanyDeleted = await ProductCompany.deleteMany({idCompany: idCompany});
         const companyDeleted = await Company.findOneAndDelete({_id: idCompany});
-        return res.status(200).send({companyDeleted});
+        return res.status(200).send({message: "Company deleted", companyDeleted});
     }catch(err){
         console.log(err);
         return err;
@@ -182,12 +182,19 @@ exports.getOffices = async(req, res)=>{
     try{
         const idCompany =req.params.id;
         const offices = await Office.find({idCompany: idCompany});
-        if(Object.entries(offices).length >= 1){
-            return res.status(200).send({offices});
-        }else{
-            return res.status(404).send({message: "There is not offices to show."});
-        }
-        
+        return res.status(200).send({offices});
+    }catch(err){
+        console.log(err);
+        return err;
+    }
+}
+
+//Función para ver las sucursales de una empresa
+exports.getCompanyProducts = async(req, res)=>{
+    try{
+        const idCompany =req.params.id;
+        const companyProducts = await ProductCompany.find({idCompany: idCompany});
+        return res.status(200).send({companyProducts});
     }catch(err){
         console.log(err);
         return err;

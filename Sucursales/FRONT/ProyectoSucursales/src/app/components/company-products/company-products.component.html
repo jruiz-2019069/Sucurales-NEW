@@ -1,10 +1,11 @@
+<div class="fondo">
 <app-nav-bar></app-nav-bar>
 
   <div class="d-flex justify-content-between mt-3">
     <div></div>
     <div></div>
     <div>
-        <button class="buttonHome me-3 mt-3 mb-3" data-bs-toggle="modal" data-bs-target="#exampleModalAddProduct" type="button">
+        <button *ngIf="this.roleLoged === 'COMPANY'" class="buttonHome me-3 mt-3 mb-3" data-bs-toggle="modal" data-bs-target="#exampleModalAddProduct" type="button">
             <span></span>
             <span></span>
             <span></span>
@@ -22,7 +23,7 @@
           <th scope="col">PROVEEDOR</th>
           <th scope="col">STOCK</th>
           <th scope="col">PRECIO</th>
-          <th scope="col">ACCIONES</th>
+          <th *ngIf="this.roleLoged === 'COMPANY'" scope="col">ACCIONES</th>
         </tr>
       </thead>
       <tbody *ngFor="let product of arrayProducts" class="table-group-divider">
@@ -31,7 +32,7 @@
           <td>{{product.supplier}}</td>
           <td>{{product.stock}}</td>
           <td>Q. {{product.price}}</td>
-          <td>
+          <td *ngIf="this.roleLoged === 'COMPANY'">
             <button (click)="getNameProduct(product.name, product._id)" type="button" class="btn btn-primary me-1"><img src="../../../assets/images/send.png" alt="" class="img-icons" data-bs-toggle="modal" data-bs-target="#exampleModalSendProduct"></button>
             <button (click)="this.getProductCompany(product._id)" type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#exampleModalUpdateProduct"><img src="../../../assets/images/lapiz.png" alt="" class="img-icons"></button>
             <button (click)="this.getProductCompany(product._id)" type="button" class="btn btn-danger ms-1" data-bs-toggle="modal" data-bs-target="#exampleModalDeleteProduct"><img src="../../../assets/images/basura.png" alt="" class="img-icons"></button>
@@ -133,4 +134,5 @@
           </div>
       </div>
   </div>
+</div>
 </div>

@@ -43,6 +43,10 @@ export class OfficeRestService {
     return this.http.put(environment.baseUrl + "office/sellProduct/" + idProduct, params, {headers: this.httpOptions});
   }
 
+  getOfficesAdmin(idCompany:any){
+    return this.http.get(environment.baseUrl + "admin/getOffices/" + idCompany, {headers: this.httpOptions});
+  }
+
   
 
 }

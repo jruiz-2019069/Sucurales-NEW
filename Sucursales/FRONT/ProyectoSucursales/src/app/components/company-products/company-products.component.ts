@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { productCompanyModel } from 'src/app/Models/productCompany';
 import { CompanyRestService } from 'src/app/services/company-rest.service';
 import { NavBarLoginRestService } from 'src/app/services/nav-bar-login-rest.service';
@@ -46,19 +47,45 @@ export class CompanyProductsComponent implements OnInit {
 
   idCompany: any;
 
+  //Id de la compañia seleccionada siendo un administrador
+  idCompanyAdmin: any;
+
+  //Role logeado
+  roleLoged: any;
+
   constructor(
     public navBarRest: NavBarLoginRestService,
     public companyProductRest: ProductsCompanyRestService,
     public officeRest: OfficeRestService,
-    public companyRest: CompanyRestService
+    public companyRest: CompanyRestService,
+    public activatedRoute: ActivatedRoute
   ) { 
     this.productCompany = new productCompanyModel("", "", "", 0, 0, "");
   }
 
   ngOnInit(): void {
-    this.getProductsCompany();
-    this.getOffices();
-    this.idCompany = this.navBarRest.getUser()._id;
+    this.roleLoged = this.navBarRest.getUser().role;
+    if(this.roleLoged === "COMPANY"){
+      this.getProductsCompany();
+      this.getOffices();
+      this.idCompany = this.navBarRest.getUser()._id;
+    }else{
+      this.activatedRoute.paramMap.subscribe( (idRuta) => {
+        this.idCompanyAdmin = idRuta.get("idCompany");
+      });
+      this.getCompanyProductsAdmin();
+    }
+  }
+
+  getCompanyProductsAdmin(){
+    this.companyProductRest.getCompanyProducts(this.idCompanyAdmin).subscribe({
+      next: (res: any) => {
+        this.arrayProducts = res.companyProducts;
+      },
+      error: (err) => {
+        console.log(err);
+      }
+    });
   }
 
   getProductsCompany(){

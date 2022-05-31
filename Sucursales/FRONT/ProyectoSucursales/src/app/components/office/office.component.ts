@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { OfficeModel } from 'src/app/Models/officeModel';
+import { CompanyRestService } from 'src/app/services/company-rest.service';
 import { NavBarLoginRestService } from 'src/app/services/nav-bar-login-rest.service';
 import { OfficeRestService } from 'src/app/services/office-rest.service';
 import Swal from 'sweetalert2';
@@ -27,9 +29,17 @@ export class OfficeComponent implements OnInit {
     idCompany: "" 
   }
 
+  //ID de la empresa seleccionada siendo role ADMIN
+  idCompanyAdmin: any;
+
+  //ROLE
+  roleLoged: any;
+
   constructor(
     public navBarRest: NavBarLoginRestService,
-    public officeRest: OfficeRestService
+    public officeRest: OfficeRestService,
+    public activated: ActivatedRoute,
+    public companyRest: CompanyRestService
   ) { 
     this.office = new OfficeModel("", "", "", "", "", "");
   }
@@ -37,9 +47,22 @@ export class OfficeComponent implements OnInit {
   //Nombre empresa
   nameCompany = this.navBarRest.getUser().name;
 
+  //Nombre empresa admin
+  nameCompanyAdmin: any;
+
   ngOnInit(): void {
-    this.office.idCompany = this.navBarRest.getUser()._id;
-    this.getOffices();
+    this.roleLoged = this.navBarRest.getUser().role;
+    if(this.roleLoged === "COMPANY"){
+      this.getOffices();
+      this.office.idCompany = this.navBarRest.getUser()._id;
+    }
+    else if(this.roleLoged === "ADMIN"){
+      this.activated.paramMap.subscribe( (idRuta) => {
+        this.idCompanyAdmin = idRuta.get("idCompany");
+      });
+      this.getOfficesAdmin();
+      this.getCompany();
+    }
   }
 
   addOffice(){
@@ -65,6 +88,17 @@ export class OfficeComponent implements OnInit {
 
   getOffices(){
     this.officeRest.getOffices(this.navBarRest.getUser()._id).subscribe({
+      next: (res: any) => {
+        this.arrayOffices = res.offices;
+      },
+      error: (err) => {
+        console.log(err);
+      }
+    });
+  }
+
+  getOfficesAdmin(){
+    this.officeRest.getOfficesAdmin(this.idCompanyAdmin).subscribe({
       next: (res: any) => {
         this.arrayOffices = res.offices;
       },
@@ -132,6 +166,17 @@ export class OfficeComponent implements OnInit {
           showConfirmButton: false,
           timer: 2000
         });
+      }
+    });
+  }
+
+  getCompany(){
+    this.companyRest.getCompany(this.idCompanyAdmin).subscribe({
+      next: (res: any) => {
+        this.nameCompanyAdmin = res.companyFound.name;
+      },
+      error: (err) => {
+        console.log(err);
       }
     });
   }

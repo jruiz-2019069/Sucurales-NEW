@@ -12,6 +12,7 @@ api.put('/updateCompany/:id', [middleware.isLoged, middleware.isAdmin], adminCon
 api.delete('/deleteCompany/:id', [middleware.isLoged, middleware.isAdmin], adminController.deleteCompany);
 api.get('/getCompanies', [middleware.isLoged, middleware.isAdmin], adminController.getCompanies);
 api.get('/getCompany/:id', [middleware.isLoged, middleware.isAdmin], adminController.getCompany);
-api.get('/getOffices/id', [middleware.isLoged, middleware.isAdmin], adminController.getOffices);
+api.get('/getOffices/:id', [middleware.isLoged, middleware.isAdmin], adminController.getOffices);
+api.get('/getCompanyProducts/:id', [middleware.isLoged, middleware.isAdmin], adminController.getCompanyProducts);
 
 module.exports = api;

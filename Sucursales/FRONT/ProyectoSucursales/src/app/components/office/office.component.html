@@ -1,7 +1,12 @@
 
-<app-nav-bar></app-nav-bar>
+
+<div class="fondo">
+  
+  <app-nav-bar></app-nav-bar>
+
+
   <div class="d-flex justify-content-between mt-3">
-    <div><button routerLink="/companyProducts" class="buttonHome ms-4 me-3 mt-3 mb-3" type="button">
+    <div><button *ngIf="this.roleLoged === 'COMPANY'" routerLink="/companyProducts" class="buttonHome ms-4 me-3 mt-3 mb-3" type="button">
       <span></span>
       <span></span>
       <span></span>
@@ -10,7 +15,7 @@
   </button></div>
     <div></div>
     <div>
-        <button class="buttonHome me-4 mt-3 mb-3" data-bs-toggle="modal" data-bs-target="#exampleModalAddSucursal" type="button">
+        <button *ngIf="this.roleLoged === 'COMPANY'" class="buttonHome me-4 mt-3 mb-3" data-bs-toggle="modal" data-bs-target="#exampleModalAddSucursal" type="button">
             <span></span>
             <span></span>
             <span></span>
@@ -20,7 +25,8 @@
     </div>
 </div>
   <div class="table" >
-    <h1>SUCURSALES {{nameCompany}} </h1>
+    <h1 *ngIf="this.roleLoged === 'COMPANY'">SUCURSALES {{nameCompany}} </h1>
+    <h1 *ngIf="this.roleLoged === 'ADMIN'">SUCURSALES {{this.nameCompanyAdmin}} </h1>
     <table class="table">
       <thead style="background-color: #FFD60A;">
         <tr>
@@ -28,7 +34,7 @@
           <th scope="col">DIRECCIÓN</th>
           <th scope="col">CORREO ELECTRÓNICO</th>
           <th scope="col">TELÉFONO</th>
-          <th scope="col">ACCIONES</th>
+          <th *ngIf="this.roleLoged === 'COMPANY'" scope="col">ACCIONES</th>
         </tr>
       </thead>
       <tbody *ngFor="let office of arrayOffices" class="table-group-divider"> 
@@ -37,7 +43,7 @@
           <td>{{office.direction}}</td>
           <td>{{office.email}}</td>
           <td>{{office.phone}}</td>
-          <td>
+          <td *ngIf="this.roleLoged === 'COMPANY'" >
             <button [routerLink]="['/officeProducts/' + office._id]" type="button" class="btn btn-primary me-1"><img src="../../../assets/images/eye.png" alt="" class="img-icons"></button>
             <button (click)="getOffice(office._id)" type="button" class="btn btn-dark " data-bs-toggle="modal" data-bs-target="#exampleModalUpdateSucursal"><img src="../../../assets/images/lapiz.png" alt="" class="img-icons"></button>
             <button (click)="getOffice(office._id)" type="button" class="btn btn-danger ms-1" data-bs-toggle="modal" data-bs-target="#exampleModalDeleteSucursal"><img src="../../../assets/images/basura.png" alt="" class="img-icons"></button>
@@ -114,3 +120,4 @@
         </div>
     </div>
   </div>
+</div>

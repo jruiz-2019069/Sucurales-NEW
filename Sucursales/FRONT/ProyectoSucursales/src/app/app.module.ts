@@ -16,6 +16,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { NavBarLoginRestService } from './services/nav-bar-login-rest.service';
 import { OfficeRestService } from './services/office-rest.service';
 import { ProductsCompanyRestService } from './services/products-company-rest.service';
+import { OfficeGraphicComponent } from './components/office-graphic/office-graphic.component';
+import { ChartsModule } from '@rinminase/ng-charts';
 
 @NgModule({
   declarations: [
@@ -27,12 +29,14 @@ import { ProductsCompanyRestService } from './services/products-company-rest.ser
     OfficeComponent,
     CompanyProductsComponent,
     OfficeProductsComponent,
+    OfficeGraphicComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    ChartsModule
     
   ],
   providers: [

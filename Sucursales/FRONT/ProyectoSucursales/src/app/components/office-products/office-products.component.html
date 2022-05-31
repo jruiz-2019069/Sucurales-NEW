@@ -1,50 +1,70 @@
-<app-nav-bar></app-nav-bar>
 
-<div class="table">
-    <h1>{{this.office.name}}</h1>
-    <table class="table table">
-      <thead style="background-color: #FFD60A;">
-        <tr>
-          <th scope="col">NOMBRE DE PRODUCTO</th>
-          <th scope="col">PROVEEDOR</th>
-          <th scope="col">PRECIO</th>
-          <th scope="col">STOCK</th>
-          <th scope="col">VENTAS</th>
-          <th scope="col">VENDER</th>
-        </tr>
-      </thead>
-      <tbody *ngFor="let product of arrayProducts" class="table-group-divider">
-        <tr class="texto">
-          <td>{{product.name}}</td>
-          <td>{{product.supplier}}</td>
-          <td>Q. {{product.price}}</td>
-          <td>{{product.stock}}</td>
-          <td>{{product.totalSales}}</td>
-          <td>
-            <button (click)="getProductOffice(product._id)" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModalSellProduct"><img src="../../../assets/images/cart.png" alt="" class="img-icons"></button>
-          </td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-  <!-- MODAL PARA VENDER UN PRODUCTO -->
-  <div class="modal fade" id="exampleModalSellProduct" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered modal-lg">
-        <div class="container">
-            <div class="modal-content">
-                <div class="contact-box">
-                    <div class="left"></div>
-                    <div class="right">
-                        <div class="position-relative">
-                            <button type="button" class="btn-close position-absolute top-0 start-100 translate-middle" data-bs-dismiss="modal" aria-label="Close"></button>
-                        </div>
-                        <h4>{{this.nameProduct}}</h4>
-                        <input [(ngModel)]="this.quantity" name="cantidad" type="text" class="field" placeholder="Cantidad que desea vender">
-                        <button (click)="sellProduct()" class="buttonModalNewUser mb-3" data-bs-dismiss="modal">Vender</button>
-                        <button style="background: #F8333C;" class="buttonModalNewUser" data-bs-dismiss="modal">Cancelar</button>
-                    </div>
-                </div>
-            </div>
-        </div>
+<div class="fondo">
+  <app-nav-bar></app-nav-bar>
+
+  <div class="d-flex justify-content-between mt-3">
+    <div></div>
+    <div></div>
+    <div>
+        <button [routerLink]="['/officeGraphic/', this.idOffice]" class="buttonHome me-4 mt-3 mb-3"
+            type="button">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <img src="../../../assets/images/grafico.png" alt="" width="85rem">
+            Gráfica
+        </button>
     </div>
   </div>
+
+  <div class="table">
+      <h1>{{this.office.name}}</h1>
+      <table class="table table mt-3">
+        <thead style="background-color: #FFD60A;">
+          <tr>
+            <th scope="col">NOMBRE DE PRODUCTO</th>
+            <th scope="col">PROVEEDOR</th>
+            <th scope="col">PRECIO</th>
+            <th scope="col">STOCK</th>
+            <th scope="col">VENTAS</th>
+            <th scope="col">VENDER</th>
+          </tr>
+        </thead>
+        <tbody *ngFor="let product of arrayProducts" class="table-group-divider">
+          <tr class="texto">
+            <td>{{product.name}}</td>
+            <td>{{product.supplier}}</td>
+            <td>Q. {{product.price}}</td>
+            <td>{{product.stock}}</td>
+            <td>{{product.totalSales}}</td>
+            <td>
+              <button (click)="getProductOffice(product._id)" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModalSellProduct"><img src="../../../assets/images/cart.png" alt="" class="img-icons"></button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <!-- MODAL PARA VENDER UN PRODUCTO -->
+    <div class="modal fade" id="exampleModalSellProduct" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered modal-lg">
+          <div class="container">
+              <div class="modal-content">
+                  <div class="contact-box">
+                      <div class="left"></div>
+                      <div class="right">
+                          <div class="position-relative">
+                              <button type="button" class="btn-close position-absolute top-0 start-100 translate-middle" data-bs-dismiss="modal" aria-label="Close"></button>
+                          </div>
+                          <h4>{{this.nameProduct}}</h4>
+                          <input [(ngModel)]="this.quantity" name="cantidad" type="text" class="field" placeholder="Cantidad que desea vender">
+                          <button (click)="sellProduct()" class="buttonModalNewUser mb-3" data-bs-dismiss="modal">Vender</button>
+                          <button style="background: #F8333C;" class="buttonModalNewUser" data-bs-dismiss="modal">Cancelar</button>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+    </div>
+
+</div>
