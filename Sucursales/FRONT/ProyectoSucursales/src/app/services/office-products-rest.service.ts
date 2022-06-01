@@ -31,4 +31,11 @@ export class OfficeProductsRestService {
     return this.http.put(environment.baseUrl + "office/sellProduct/" + idProduct, body, {headers: this.htppOptions});
   }
 
+  sortProductsOfficeByLargerStock(idOffice: any){
+    return this.http.get(environment.baseUrl + "productOffice/sortProductsOfficeByLargerStock/" + idOffice, {headers: this.htppOptions});
+  }
+
+  sortProductsOfficeByRetailStock(idOffice: any){
+    return this.http.get(environment.baseUrl + "productOffice/sortProductsOfficeByRetailStock/" + idOffice, {headers: this.htppOptions});
+  }
 }

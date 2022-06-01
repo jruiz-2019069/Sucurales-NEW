@@ -50,6 +50,8 @@ export class OfficeComponent implements OnInit {
   //Nombre empresa admin
   nameCompanyAdmin: any;
 
+  search: string = "";
+
   ngOnInit(): void {
     this.roleLoged = this.navBarRest.getUser().role;
     if(this.roleLoged === "COMPANY"){

@@ -30,6 +30,10 @@ export class OfficeProductsComponent implements OnInit {
   //Variable que almacena el nombre del producto seleccionado
   nameProduct: any;
 
+  search: string = "";
+
+  searchSupplier: string = "";
+
   constructor(
     public officeProductRest: OfficeProductsRestService,
     public activatedRoute: ActivatedRoute,
@@ -97,6 +101,32 @@ export class OfficeProductsComponent implements OnInit {
           showConfirmButton: false,
           timer: 2000
         });
+      }
+    });
+  }
+
+  sortProductsOfficeByLargerStock(){
+    this.officeProductRest.sortProductsOfficeByLargerStock(this.idOffice).subscribe({
+      next: (res: any) => {
+        this.arrayProducts = res.productsLargerStock;
+        console.log(this.arrayProducts);
+        
+      },
+      error: (err) => {
+        console.log(err);
+      }
+    });
+  }
+
+  sortProductsOfficeByRetailStock(){
+    this.officeProductRest.sortProductsOfficeByRetailStock(this.idOffice).subscribe({
+      next: (res: any) => {
+        this.arrayProducts = res.productsRetailStock;
+        console.log(this.arrayProducts);
+        
+      },
+      error: (err) => {
+        console.log(err);
       }
     });
   }

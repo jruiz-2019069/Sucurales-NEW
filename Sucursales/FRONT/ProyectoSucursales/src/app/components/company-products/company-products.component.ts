@@ -53,6 +53,10 @@ export class CompanyProductsComponent implements OnInit {
   //Role logeado
   roleLoged: any;
 
+  nameCompanyLoged: any;
+
+  search: string = "";
+
   constructor(
     public navBarRest: NavBarLoginRestService,
     public companyProductRest: ProductsCompanyRestService,
@@ -69,6 +73,7 @@ export class CompanyProductsComponent implements OnInit {
       this.getProductsCompany();
       this.getOffices();
       this.idCompany = this.navBarRest.getUser()._id;
+      this.nameCompanyLoged = this.navBarRest.getUser().name;
     }else{
       this.activatedRoute.paramMap.subscribe( (idRuta) => {
         this.idCompanyAdmin = idRuta.get("idCompany");

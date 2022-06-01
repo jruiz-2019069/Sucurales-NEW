@@ -18,6 +18,10 @@ import { OfficeRestService } from './services/office-rest.service';
 import { ProductsCompanyRestService } from './services/products-company-rest.service';
 import { OfficeGraphicComponent } from './components/office-graphic/office-graphic.component';
 import { ChartsModule } from '@rinminase/ng-charts';
+import { SearchOfficeCompanyPipe } from './pipes/search-office-company.pipe';
+import { SearchProductCompanyPipe } from './pipes/search-product-company.pipe';
+import { SearchProductOfficePipe } from './pipes/search-product-office.pipe';
+import { SearchSupplierOfficePipe } from './pipes/search-supplier-office.pipe';
 
 @NgModule({
   declarations: [
@@ -30,6 +34,10 @@ import { ChartsModule } from '@rinminase/ng-charts';
     CompanyProductsComponent,
     OfficeProductsComponent,
     OfficeGraphicComponent,
+    SearchOfficeCompanyPipe,
+    SearchProductCompanyPipe,
+    SearchProductOfficePipe,
+    SearchSupplierOfficePipe,
   ],
   imports: [
     BrowserModule,

@@ -3,6 +3,7 @@
 <div class="fondo">
   
   <app-nav-bar></app-nav-bar>
+  
 
 
   <div class="d-flex justify-content-between mt-3">
@@ -13,7 +14,12 @@
       <span></span>
       PRODUCTOS
   </button></div>
-    <div></div>
+    <div>
+      <div class="input-group ms-2 mt-3 mb-3 me-3">
+        <input [(ngModel)]="this.search" name="filter" type="text" class="form-control" placeholder="Sucursal" aria-label="Recipient's username" aria-describedby="basic-addon2">
+        <span class="input-group-text" id="basic-addon2">Buscar</span>
+      </div>
+    </div>
     <div>
         <button *ngIf="this.roleLoged === 'COMPANY'" class="buttonHome me-4 mt-3 mb-3" data-bs-toggle="modal" data-bs-target="#exampleModalAddSucursal" type="button">
             <span></span>
@@ -37,7 +43,7 @@
           <th *ngIf="this.roleLoged === 'COMPANY'" scope="col">ACCIONES</th>
         </tr>
       </thead>
-      <tbody *ngFor="let office of arrayOffices" class="table-group-divider"> 
+      <tbody *ngFor="let office of arrayOffices | searchOfficeCompany: search" class="table-group-divider"> 
         <tr class="texto">
           <td>{{office.name}}</td>
           <td>{{office.direction}}</td>
