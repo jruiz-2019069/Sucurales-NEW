@@ -191,3 +191,8 @@ h4:after{
     overflow: auto;
     overflow-x: hidden;
 }
+
+.confButton{
+	border: 2px solid #457b9d;
+	padding: 0.5rem;
+}

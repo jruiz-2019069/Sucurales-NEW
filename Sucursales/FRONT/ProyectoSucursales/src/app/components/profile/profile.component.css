@@ -104,7 +104,7 @@ textarea{
 .buttonModalNewUser{
 	width: 100%;
 	padding: 0.5rem 1rem;
-	background-color: #2ecc71;
+	background-color: #001d3d;
 	color: #fff;
 	font-size: 1.1rem;
 	border: none;
@@ -114,7 +114,8 @@ textarea{
 }
 
 .buttonModalNewUser:hover{
-    background-color: #27ae60;
+    background-color: #001d3de8;
+	
 }
 
 .field:focus{

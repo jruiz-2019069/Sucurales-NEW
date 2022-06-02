@@ -199,3 +199,8 @@ h4:after{
 	flex-direction: row;
 	height: 2rem;
 }
+
+.confButton{
+	border: 2px solid #457b9d;
+	padding: 0.5rem;
+}
