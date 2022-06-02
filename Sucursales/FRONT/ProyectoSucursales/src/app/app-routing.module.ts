@@ -6,17 +6,20 @@ import { HomeComponent } from './components/home/home.component';
 import { OfficeGraphicComponent } from './components/office-graphic/office-graphic.component';
 import { OfficeProductsComponent } from './components/office-products/office-products.component';
 import { OfficeComponent } from './components/office/office.component';
+import { ProfileComponent } from './components/profile/profile.component';
+import { UsersGuardsGuard } from './guards/users-guards.guard';
 
 const routes: Routes = [
   {path:'', component: HomeComponent},
   {path:'home', component:HomeComponent},
-  {path:'companies', component:CompaniesComponent},
-  {path:'companyProducts', component:CompanyProductsComponent},
-  {path:'companyProducts/:idCompany', component:CompanyProductsComponent},
-  {path:'office', component:OfficeComponent},
-  {path:'office/:idCompany', component:OfficeComponent},
-  {path:'officeProducts/:idOffice', component:OfficeProductsComponent},
-  {path:'officeGraphic/:idOffice', component: OfficeGraphicComponent}
+  {path:'companies', canActivate: [UsersGuardsGuard], component:CompaniesComponent},
+  {path:'companyProducts', canActivate: [UsersGuardsGuard], component:CompanyProductsComponent},
+  {path:'companyProducts/:idCompany', canActivate: [UsersGuardsGuard], component:CompanyProductsComponent},
+  {path:'office', canActivate: [UsersGuardsGuard], component:OfficeComponent},
+  {path:'office/:idCompany', canActivate: [UsersGuardsGuard], component:OfficeComponent},
+  {path:'officeProducts/:idOffice', canActivate: [UsersGuardsGuard], component:OfficeProductsComponent},
+  {path:'officeGraphic/:idOffice', canActivate: [UsersGuardsGuard], component: OfficeGraphicComponent},
+  {path:"profile", canActivate: [UsersGuardsGuard], component: ProfileComponent}
 ];
 
 @NgModule({

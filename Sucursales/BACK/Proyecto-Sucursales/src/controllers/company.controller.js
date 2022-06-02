@@ -35,7 +35,7 @@ exports.login = async(req, res)=>{
                 const token = await jwt.createToken(adminFound); //Creamos el token para un administrador.
                 return res.status(200).send({adminFound ,message: 'Entering the system...', token})
             }else{
-                return res.status(403).send({mesagge: 'Incorrect username or password'});
+                return res.status(403).send({message: 'Incorrect username or password'});
             }
         }
     }catch(err){
@@ -55,15 +55,13 @@ exports.updateCompanyLoged = async(req, res)=>{
             location: params.location,
             phone: params.phone,
             email: params.email,
-            userCompany: params.userCompany,
-            passwordCompany: params.passwordCompany,
+            userCompany: params.userCompany
         }
         const company = await Company.findOne({_id: idCompany});
         const msg = await dataObligatory(data); 
         if(msg){
             return res.status(400).send(msg);
         }else{
-            data.passwordCompany = await encryptPassword(params.passwordCompany);
             if(company.name != params.name.toUpperCase()){
                 const companyFound = await Company.findOne({name: params.name.toUpperCase()});
                 if(companyFound){

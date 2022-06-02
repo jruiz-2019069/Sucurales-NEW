@@ -46,7 +46,7 @@ export class NavBarLoginComponent implements OnInit {
       },
       error: (err) => {
         Swal.fire({
-          title: err.error.message,
+          title: err.error.message || err.error,
           icon: 'error',
           showConfirmButton: false,
           timer: 2000

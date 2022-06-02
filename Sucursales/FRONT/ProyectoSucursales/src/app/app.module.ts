@@ -22,6 +22,8 @@ import { SearchOfficeCompanyPipe } from './pipes/search-office-company.pipe';
 import { SearchProductCompanyPipe } from './pipes/search-product-company.pipe';
 import { SearchProductOfficePipe } from './pipes/search-product-office.pipe';
 import { SearchSupplierOfficePipe } from './pipes/search-supplier-office.pipe';
+import { ProfileComponent } from './components/profile/profile.component';
+
 
 @NgModule({
   declarations: [
@@ -38,6 +40,7 @@ import { SearchSupplierOfficePipe } from './pipes/search-supplier-office.pipe';
     SearchProductCompanyPipe,
     SearchProductOfficePipe,
     SearchSupplierOfficePipe,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,

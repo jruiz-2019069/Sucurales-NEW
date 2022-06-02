@@ -101,7 +101,7 @@ exports.updateCompany = async(req, res)=>{
             return res.status(400).send(msg);
         }else{
             const company = await Company.findOne({_id: idCompany});
-            data.passwordCompany = await encryptPassword(params.passwordCompany);
+            
             if(company.name != params.name.toUpperCase()){
                 const companyFound = await Company.findOne({name: params.name.toUpperCase()});
                 if(companyFound){

@@ -20,4 +20,8 @@ export class NavBarComponent implements OnInit {
     localStorage.clear();
   }
 
+  profile(){
+    this.router.navigateByUrl("/profile");
+  }
+
 }

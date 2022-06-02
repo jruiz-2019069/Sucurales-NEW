@@ -1,0 +1,32 @@
+<div class="fondo">
+    <app-nav-bar></app-nav-bar>
+    <div>
+        <div class="row justify-content-center">
+            <div class="card mt-5" style="width: 30rem;">
+                <div class="contenedorImagen">
+                    <h2 class="card-title text-center mt-2">Perfil</h2>
+                    <img src="../../../assets/images/empresaIcon.png" class="card-img-top imagenPerfil mt-3">
+                </div>
+                <div class="card-body">
+                    <p class="card-text">
+                        <input [(ngModel)]="this.company.name" name="name" type="text" class="field" placeholder="Nombre">
+                        <select [(ngModel)]="this.company.typeCompany" name="type" class="form-select field" aria-label="Default select example" >
+                            <option value="Equipo Local" disabled selected>Tipo Empresa</option>
+                            <option value="Restaurante">Restaurante</option>
+                            <option value="Tecnológica">Tecnológica</option>
+                            <option value="Supermercado">Supermercado</option>
+                            <option value="Deportiva">Deportiva</option>
+                            <option value="Boutique">Boutique</option>
+                        </select>
+                        <input [(ngModel)]="this.company.location" name="email" type="text" class="field" placeholder="Ubicacion">
+                        <input [(ngModel)]="this.company.phone" name="tele" type="text" class="field" placeholder="Teléfono">
+                        <input  [(ngModel)]="this.company.email" type="text" class="field" name="email" placeholder="Email">
+                        <input  [(ngModel)]="this.company.userCompany" type="text" class="field" name="user" placeholder="Usuario">
+
+                        <button (click)="updateCompany()" class="buttonModalNewUser" data-bs-dismiss="modal">Actualizar</button>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
