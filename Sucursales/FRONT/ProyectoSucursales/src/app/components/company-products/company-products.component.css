@@ -206,3 +206,31 @@ h4:after{
 	border: 2px solid #457b9d;
 }
 
+/*Span para buscar*/
+
+.spanSearch{
+	background-color: #457b9d;
+	border-color: #457b9d;
+}
+
+.img-spanSeach{
+	height: 1.5rem;
+}
+
+.labelModal{
+	text-align: left;
+}
+
+.requiredField{
+    color: #DD4B39;
+    display: flex;
+    align-items: flex-start;
+	font-size: 0.75rem;
+}
+
+.spanInfo{
+    color: #000000;
+    display: flex;
+    align-items: flex-start;
+	font-size: 1rem;
+}

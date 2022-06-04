@@ -235,6 +235,10 @@ export class CompanyProductsComponent implements OnInit {
     });
   }
 
+  resetForm(addProductForm:any){
+    addProductForm.reset();
+  }
+
 
 
 }

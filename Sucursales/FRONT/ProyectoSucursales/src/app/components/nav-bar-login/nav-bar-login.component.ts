@@ -76,4 +76,8 @@ export class NavBarLoginComponent implements OnInit {
     });
   }
 
+  resetForm(registerForm:any){
+    registerForm.reset();
+  }
+
 }

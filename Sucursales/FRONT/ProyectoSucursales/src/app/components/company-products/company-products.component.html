@@ -5,6 +5,7 @@
     <div>
         <div class="input-group ms-5 mt-3 mb-3 me-3">
             <input [(ngModel)]="this.search" name="filter" type="text" class="form-control confButton" placeholder="Nombre del producto" aria-label="Recipient's username" aria-describedby="basic-addon2">
+            <span class="spanSearch input-group-text"><img src="../../../assets/images/lupa.png" class="img-spanSeach"></span>
         </div>
 
     </div>
@@ -57,14 +58,20 @@
                     <div class="left"></div>
                     <div class="right">
                         <div class="position-relative">
-                            <button type="button" class="btn-close position-absolute top-0 start-100 translate-middle" data-bs-dismiss="modal" aria-label="Close"></button>
+                            <button (click)="resetForm(addProductForm)" type="button" class="btn-close position-absolute top-0 start-100 translate-middle" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <h2>Datos producto</h2>
-                        <input [(ngModel)]="productCompany.name" name="name" type="text" class="field" placeholder="Nombre producto">
-                        <input [(ngModel)]="productCompany.supplier" name="supplier" type="text" class="field" placeholder="Proveedor">
-                        <input [(ngModel)]="productCompany.stock" name="stock" type="text" class="field" placeholder="Stock">
-                        <input [(ngModel)]="productCompany.price" name="price" type="text" class="field" placeholder="Precio">
-                        <button (click)="addProductCompany()"class="buttonModalNewUser" data-bs-dismiss="modal">Guardar</button>
+                        <form #addProductForm>
+                            <span class="spanInfo">Nombre</span>
+                            <input [(ngModel)]="productCompany.name" name="name" type="text" class="field" placeholder="Nombre producto">
+                            <span class="spanInfo">Proveedor</span>
+                            <input [(ngModel)]="productCompany.supplier" name="supplier" type="text" class="field" placeholder="Proveedor">
+                            <span class="spanInfo">Stock</span>
+                            <input [(ngModel)]="productCompany.stock" name="stock" type="text" class="field" placeholder="Stock">
+                            <span class="spanInfo">Precio</span>
+                            <input [(ngModel)]="productCompany.price" name="price" type="text" class="field" placeholder="Precio">
+                            <button (click)="addProductCompany()"class="buttonModalNewUser" data-bs-dismiss="modal">Guardar</button>
+                        </form>
                     </div>
                 </div>
             </div>
@@ -128,10 +135,12 @@
                       </div>
                       <h2>{{nameProduct}}</h2>
                       <form>
+                          <span class="spanInfo">Sucursal</span>
                           <select [(ngModel)]="this.idOffice" name="office" class="form-select field" aria-label="Default select example" >
                             <option value="Sucursal" disabled selected>Sucursal</option>
                             <option *ngFor="let office of arrayOffices" value="{{office._id}}">{{office.name}}</option>
                           </select>
+                          <span class="spanInfo">Cantidad a enviar</span>
                           <input [(ngModel)]="this.quantity" name="quantity" type="number" class="field" placeholder="Cantidad a enviar">
                           <button (click)="addProductOffice()" class="btnModalSend" data-bs-dismiss="modal">Enviar</button>
                       </form>

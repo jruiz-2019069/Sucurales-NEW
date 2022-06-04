@@ -131,5 +131,9 @@ export class CompaniesComponent implements OnInit {
     });
   }
 
+  resetForm(addCompanyForm:any){
+    addCompanyForm.reset();
+  }
+
 
 }

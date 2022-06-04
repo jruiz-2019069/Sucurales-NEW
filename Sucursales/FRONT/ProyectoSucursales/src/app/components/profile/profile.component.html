@@ -1,6 +1,6 @@
 <div class="fondo">
     <app-nav-bar></app-nav-bar>
-    <div>
+    <div class="mb-3">
         <div class="row justify-content-center">
             <div class="card mt-5" style="width: 30rem;">
                 <div class="contenedorImagen">
@@ -9,7 +9,9 @@
                 </div>
                 <div class="card-body">
                     <p class="card-text">
+                        <span class="spanInfo">Nombre</span>
                         <input [(ngModel)]="this.company.name" name="name" type="text" class="field" placeholder="Nombre">
+                        <span class="spanInfo">Tipo de Empresa</span>
                         <select [(ngModel)]="this.company.typeCompany" name="type" class="form-select field" aria-label="Default select example" >
                             <option value="Equipo Local" disabled selected>Tipo Empresa</option>
                             <option value="Restaurante">Restaurante</option>
@@ -18,11 +20,14 @@
                             <option value="Deportiva">Deportiva</option>
                             <option value="Boutique">Boutique</option>
                         </select>
-                        <input [(ngModel)]="this.company.location" name="email" type="text" class="field" placeholder="Ubicacion">
+                        <span class="spanInfo">Ubicación</span>
+                        <input [(ngModel)]="this.company.location" name="location" type="text" class="field" placeholder="Ubicacion">
+                        <span class="spanInfo">Teléfono</span>
                         <input [(ngModel)]="this.company.phone" name="tele" type="text" class="field" placeholder="Teléfono">
+                        <span class="spanInfo">Correo Eléctronico</span>
                         <input  [(ngModel)]="this.company.email" type="text" class="field" name="email" placeholder="Email">
+                        <span class="spanInfo">Usuario</span>
                         <input  [(ngModel)]="this.company.userCompany" type="text" class="field" name="user" placeholder="Usuario">
-
                         <button (click)="updateCompany()" class="buttonModalNewUser" data-bs-dismiss="modal">Actualizar</button>
                     </p>
                 </div>

@@ -18,7 +18,7 @@
     </div>
 
     <div class="empresas row">
-        <div *ngFor="let empresa of arrayCompanies" class="card me-3" style="width: 18rem;">
+        <div *ngFor="let empresa of arrayCompanies" class="card me-3 mt-3 ms-3" style="width: 18rem;">
             <img class="card-img-top" src="../../../assets/images/edificio.png" alt="Imagen Empresa">
             <div class="card-body">
                 <h5 class="card-title"><strong>{{empresa.name}}</strong></h5>
@@ -121,10 +121,10 @@
                             <div class="left"></div>
                             <div class="right">
                                 <div class="position-relative">
-                                    <button type="button" class="btn-close position-absolute top-0 start-100 translate-middle" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    <button (click)="resetForm(addCompanyForm)" type="button" class="btn-close position-absolute top-0 start-100 translate-middle" data-bs-dismiss="modal" aria-label="Close"></button>
                                 </div>
                                 <h2>Agregar Empresa</h2>
-                                <form>
+                                <form #addCompanyForm>
                                     <input [(ngModel)]="company.name" name="name" type="text" class="field" placeholder="Name">
                                     <select [(ngModel)]="company.typeCompany" name="type" class="form-select field" aria-label="Default select example" >
                                         <option value="Equipo Local" disabled selected>Tipo Empresa</option>

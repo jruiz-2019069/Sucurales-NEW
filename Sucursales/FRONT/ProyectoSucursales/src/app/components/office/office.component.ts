@@ -183,4 +183,8 @@ export class OfficeComponent implements OnInit {
     });
   }
 
+  resetForm(addOfficeForm:any){
+    addOfficeForm.reset();
+  }
+
 }
