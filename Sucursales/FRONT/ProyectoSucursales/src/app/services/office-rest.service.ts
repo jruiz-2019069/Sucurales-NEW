@@ -18,9 +18,8 @@ export class OfficeRestService {
     public navBarRest: NavBarLoginRestService
   ) { }
 
-  addOffice(params: {}){
-    console.log("****************>>>>>>" + JSON.stringify(params));
-    return this.http.post(environment.baseUrl + "office/addOffice", params, {headers: this.httpOptions});
+  addOffice(params: {}, idCompany: any){
+    return this.http.post(environment.baseUrl + "office/addOffice/" + idCompany, params, {headers: this.httpOptions});
   }
 
   getOffices(idCompany: any){

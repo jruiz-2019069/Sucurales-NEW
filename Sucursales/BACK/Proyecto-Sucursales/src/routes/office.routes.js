@@ -6,7 +6,7 @@ const officeController = require('../controllers/office.controller');
 const middleware = require('../services/middleware');
 
 api.get('/testOfficeController', officeController.testOfficeController);
-api.post('/addOffice', [middleware.isLoged, middleware.isCompany], officeController.addOffice);
+api.post('/addOffice/:idCompany', [middleware.isLoged, middleware.isCompany], officeController.addOffice);
 api.put('/updateOffice/:id', [middleware.isLoged, middleware.isCompany], officeController.updateOffice);
 api.delete('/deleteOffice/:id', [middleware.isLoged, middleware.isCompany], officeController.deleteOffice);
 api.get('/getOffices/:id', [middleware.isLoged, middleware.isCompany || middleware.isAdmin], officeController.getOffices);

@@ -11,7 +11,7 @@ exports.testOfficeController = (req, res)=>{
 //Función para crear una sucursal de una empresa
 exports.addOffice = async(req, res)=>{
     try{
-        const idCompany = req.user.sub;
+        const idCompany = req.params.idCompany;
         const params = req.body;
         const data = {
             name: params.name.toUpperCase(),

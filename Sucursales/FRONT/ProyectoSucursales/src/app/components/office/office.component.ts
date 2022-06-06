@@ -68,7 +68,7 @@ export class OfficeComponent implements OnInit {
   }
 
   addOffice(){
-    this.officeRest.addOffice(this.office).subscribe({
+    this.officeRest.addOffice(this.office, this.navBarRest.getUser()._id).subscribe({
       next: (res: any) => {
         Swal.fire({
           title: res.message,
