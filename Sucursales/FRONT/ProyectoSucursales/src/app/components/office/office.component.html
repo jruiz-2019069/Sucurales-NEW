@@ -101,9 +101,13 @@
                             <button type="button" class="btn-close position-absolute top-0 start-100 translate-middle" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <h2>Actualizar</h2>
+                        <span class="spanInfo">Nombre</span>
                         <input [(ngModel)]="officeUpdate.name" name="name" type="text" class="field" placeholder="Nombre">
+                        <span class="spanInfo">Dirección</span>
                         <input [(ngModel)]="officeUpdate.direction" name="direccion" type="text" class="field" placeholder="Dirección">
+                        <span class="spanInfo">Teléfono</span>
                         <input [(ngModel)]="officeUpdate.phone" name="phone" type="text" class="field" placeholder="Teléfono">
+                        <span class="spanInfo">Correo Eléctronico</span>
                         <input [(ngModel)]="officeUpdate.email" name="email" type="text" class="field" placeholder="Correo electrónico">
                         <button (click)="updateOffice()" class="buttonModalNewUser" data-bs-dismiss="modal">Guardar</button>
                     </div>

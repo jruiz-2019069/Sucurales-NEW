@@ -90,9 +90,13 @@
                             <button type="button" class="btn-close position-absolute top-0 start-100 translate-middle" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <h2>Actualizar</h2>
+                        <span class="spanInfo">Nombre</span>
                         <input [(ngModel)]="productUpdate.name" name="name" type="text" class="field" placeholder="Nombre producto">
+                        <span class="spanInfo">Proveedor</span>
                         <input [(ngModel)]="productUpdate.supplier" name="supplier" type="text" class="field" placeholder="Proveedor">
+                        <span class="spanInfo">Stock</span>
                         <input [(ngModel)]="productUpdate.stock" name="stock" type="text" class="field" placeholder="Stock">
+                        <span class="spanInfo">Precio</span>
                         <input [(ngModel)]="productUpdate.price" name="price" type="text" class="field" placeholder="Precio">
                         <button (click)="updateProductCompany()" class="buttonModalNewUser" data-bs-dismiss="modal">Guardar</button>
                     </div>
